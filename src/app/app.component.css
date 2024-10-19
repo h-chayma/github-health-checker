@@ -1,0 +1,33 @@
+.btn:hover {
+    background-color: #ffffff;
+    color: #1c1c1c;
+}
+
+.rounded-custom {
+    border-radius: 20px;
+}
+
+.header-container,
+footer,
+.bg-dark {
+    background: linear-gradient(135deg, #343a40, #1c1c1c);
+}
+
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.loading-spinner img {
+    width: 100px;
+    height: 100px;
+}
+
+.loading-text {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
