@@ -11,15 +11,9 @@ export class GithubService {
   constructor(private http: HttpClient) { }
 
   private getHeaders() {
-    const token = this.getToken();
     return new HttpHeaders({
-      'Authorization': `token ${token}`,
       'Accept': 'application/vnd.github.v3+json'
     });
-  }
-
-  private getToken(): string {
-    return 'environment.githubToken';
   }
 
   getRepositoryData(owner: string, repo: string): Observable<any> {
