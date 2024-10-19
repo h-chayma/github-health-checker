@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { forkJoin } from 'rxjs';
 import { GithubService } from './services/github.service';
-import { NotificationService } from './services/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -18,10 +17,16 @@ export class AppComponent {
   daysSinceLastCommit: number = 0;
   contributorsCount: number = 0;
   loading: boolean = false;
+  errorMessage: string | null = null;
 
-  constructor(private githubService: GithubService, private notificationService: NotificationService) { }
+  constructor(private githubService: GithubService) { }
 
   checkRepoHealth() {
+    this.errorMessage = null;
+    if (!this.owner || !this.repo) {
+      this.errorMessage = 'Please enter both repository owner and name.';
+      return;
+    }
     this.loading = true;
     forkJoin({
       repositoryData: this.githubService.getRepositoryData(this.owner, this.repo),
@@ -39,12 +44,18 @@ export class AppComponent {
         this.pullRequests = pullRequests;
       },
       error: (error) => {
-        this.notificationService.showError('Error fetching repository data. Please try again later.');
+        this.loading = false;
+        if (error.status === 404) {
+          this.errorMessage = 'Repository not found. Please check the owner and repository name.';
+        } else if (error.status === 403) {
+          this.errorMessage = 'API rate limit exceeded. Please try again later.';
+        } else {
+          this.errorMessage = 'An error occurred while fetching data. Please try again later.';
+        }
       },
       complete: () => {
         this.loading = false;
       }
     });
   }
-
 }

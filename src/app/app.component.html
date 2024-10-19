@@ -28,6 +28,25 @@
     <p class="loading-text text-dark">Loading...</p>
   </div>
 
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!repository" class="row">
+    <div class="col-md-12">
+      <div class="card text-light bg-dark rounded">
+        <div class="card-body">
+          <h5 class="card-title">How to Use</h5>
+          <ol>
+            <li>Enter a GitHub username in the "GitHub Username" field.</li>
+            <li>Enter a repository name in the "Repository Name" field.</li>
+            <li>Click the <strong>Check Health</strong> button to display the repository data.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div *ngIf="repository" class="row">
     <div class="col-md-12 mb-4">
       <div class="card text-light bg-dark rounded">

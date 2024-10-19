@@ -17,22 +17,22 @@ export class GithubService {
   }
 
   getRepositoryData(owner: string, repo: string): Observable<any> {
-    const url = `${this.apiUrl}${owner}/${repo}`;
+    const url = this.apiUrl + owner + '/' + repo;
     return this.http.get<any>(url, { headers: this.getHeaders() });
   }
 
   getCommitActivity(owner: string, repo: string): Observable<any> {
-    const url = `${this.apiUrl}${owner}/${repo}/commits`;
+    const url = this.apiUrl + owner + '/' + repo + '/commits';
     return this.http.get<any>(url, { headers: this.getHeaders() });
   }
 
   getPullRequests(owner: string, repo: string): Observable<any> {
-    const url = `${this.apiUrl}${owner}/${repo}/pulls`;
+    const url = this.apiUrl + owner + '/' + repo + '/pulls';
     return this.http.get<any>(url, { headers: this.getHeaders() });
   }
 
   getContributors(owner: string, repo: string): Observable<any> {
-    const url = `${this.apiUrl}${owner}/${repo}/contributors`;
+    const url = this.apiUrl + owner + '/' + repo + '/contributors';
     return this.http.get<any>(url, { headers: this.getHeaders() });
   }
 }
