@@ -9,8 +9,8 @@ import { GithubService } from './services/github.service';
 })
 export class AppComponent {
   title = 'githubHealthChecker';
-  owner: string = 'academico-sis';
-  repo: string = 'academico';
+  owner: string = 'h-chayma';
+  repo: string = 'chanOnceSaid';
   repository: any;
   pullRequests: any[] = [];
   commitActivity: any[] = [];

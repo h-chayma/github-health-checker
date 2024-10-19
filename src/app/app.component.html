@@ -32,7 +32,7 @@
     {{ errorMessage }}
   </div>
 
-  <div *ngIf="!repository" class="row">
+  <div *ngIf="!repository && !errorMessage" class="row">
     <div class="col-md-12">
       <div class="card text-light bg-dark rounded">
         <div class="card-body">
