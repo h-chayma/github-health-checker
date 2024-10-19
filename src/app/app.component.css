@@ -31,3 +31,7 @@ footer,
     font-size: 18px;
     font-weight: bold;
 }
+
+.btn-close {
+    filter: brightness(0) invert(1);
+}

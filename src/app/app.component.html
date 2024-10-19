@@ -17,8 +17,9 @@
       <a class="btn btn-outline-light" href="https://github.com/"><i class="fa-brands fa-github"></i> GITHUB</a>
       <button class="btn btn-success" (click)="checkRepoHealth()"><i class="fa-solid fa-circle-check"></i> Check
         Health</button>
-      <button class="btn btn-secondary" onclick="openHelpModal()"><i class="fa-solid fa-circle-info"></i>
-        HELP</button>
+      <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#helpModal">
+        <i class="fa-solid fa-circle-info"></i> HELP
+      </button>
     </div>
   </div>
 
@@ -142,3 +143,50 @@
         href="https://chaymafarhat.netlify.app/" class="text-info">Website</a></p>
   </div>
 </footer>
+
+<div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content bg-dark text-light">
+      <div class="modal-header">
+        <h5 class="modal-title" id="helpModalLabel">Help - Repository Health Checker</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6>Introduction</h6>
+        <p>This tool helps you check the health of a GitHub repository by displaying key metrics like stars, forks, and
+          open issues. You can also view recent activity, including pull requests and commit statistics.</p>
+
+        <h6>How to Use</h6>
+        <ol>
+          <li>Enter a GitHub username in the "GitHub Username" field.</li>
+          <li>Enter a repository name in the "Repository Name" field.</li>
+          <li>Click the <strong>Check Health</strong> button to display the repository data.</li>
+        </ol>
+
+        <h6>Key Features Explained</h6>
+        <ul>
+          <li><strong>Repository Information:</strong> Displays the repository's owner, stars, forks, issues, and basic
+            details.</li>
+          <li><strong>Activity Overview:</strong> Includes last commit, total commits, contributors, and how to
+            interpret these metrics.</li>
+          <li><strong>Pull Requests:</strong> Shows recent pull requests and their statuses (open or closed).</li>
+          <li><strong>Additional Insights:</strong> Describes watchers, languages, and licenses.</li>
+        </ul>
+
+        <h6>FAQs</h6>
+        <ul>
+          <li><strong>What if the repository doesn't load?</strong></li>
+          <li><strong>Why do I need to input both username and repository name?</strong></li>
+          <li><strong>What do the different metrics (e.g., stars, forks) mean?</strong></li>
+        </ul>
+
+        <h6>Troubleshooting</h6>
+        <p>Possible issues include incorrect repository names or no internet connection. Ensure you’ve entered a valid
+          GitHub username and repository name.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
