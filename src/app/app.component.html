@@ -47,7 +47,7 @@
     </div>
   </div>
 
-  <div *ngIf="repository" class="row">
+  <div *ngIf="repository && !errorMessage" class="row">
     <div class="col-md-12 mb-4">
       <div class="card text-light bg-dark rounded">
         <div class="card-body">
@@ -118,7 +118,7 @@
           <h5 class="card-title">
             <i class="fas fa-code-branch"></i> Recent Pull Requests
           </h5>
-          <ul class="list-group list-group-flush">
+          <ul class="list-group list-group-flush" *ngIf="pullRequests.length > 0; else noPullRequests">
             <li class="list-group-item bg-dark text-light" *ngFor="let pr of pullRequests | slice:0:4">
               #{{ pr.number }} - {{ pr.title }}
               <span class="badge float-end" [ngClass]="{
@@ -127,6 +127,9 @@
                           }">{{ pr.state | titlecase }}</span>
             </li>
           </ul>
+          <ng-template #noPullRequests>
+            <p class="text-light">No recent pull requests found.</p>
+          </ng-template>
         </div>
       </div>
     </div>
