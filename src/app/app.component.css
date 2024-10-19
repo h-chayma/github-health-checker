@@ -40,3 +40,28 @@ footer,
     background-color: transparent;
     color: white;
 }
+
+::placeholder {
+    color: white;
+    opacity: 0.5;
+}
+
+::-webkit-input-placeholder {
+    color: white;
+    opacity: 0.5;
+}
+
+:-moz-placeholder {
+    color: white;
+    opacity: 0.5;
+}
+
+:-ms-input-placeholder {
+    color: white;
+    opacity: 0.5;
+}
+
+::-ms-input-placeholder {
+    color: white;
+    opacity: 0.5;
+}
